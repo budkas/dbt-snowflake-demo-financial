@@ -1,0 +1,31 @@
+dbt_hol:
+  target: dev #default target
+  outputs:
+    dev:
+      type: snowflake
+      ######## Please replace with your Snowflake account name
+      account: ua69997.australia-east.azure
+      
+      user: "{{ env_var('dbt_user') }}"
+      ######## Please replace with your Snowflake dbt user password
+      password: "{{ env_var('dbt_password') }}"
+      
+      role: dbt_dev_role
+      database: dbt_hol_dev
+      warehouse: dbt_dev_wh
+      schema: public
+      threads: 200
+    prod:
+      type: snowflake
+      ######## Please replace with your Snowflake account name
+      account: ua69997.australia-east.azure
+      
+      user: "{{ env_var('dbt_user') }}"
+      ######## Please replace with your Snowflake dbt user password
+      password: "{{ env_var('dbt_password') }}"
+      
+      role: dbt_prod_role
+      database: dbt_hol_prod
+      warehouse: dbt_prod_wh
+      schema: public
+      threads: 200
